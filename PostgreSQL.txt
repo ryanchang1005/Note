@@ -18,7 +18,7 @@ CREATE USER username WITH PASSWORD 'xxx';
 DROP USER username;
 
 修改User密碼
-ALTER USER scheduler PASSWORD 'new_password';
+ALTER USER username PASSWORD 'new_password';
 
 授權與撤銷
     連線存取
@@ -26,10 +26,10 @@ ALTER USER scheduler PASSWORD 'new_password';
     使用DB
         GRANT|REVOKE USAGE ON SCHEMA database_name TO|FROM username;
     所有表
-        GRANT|REVOKE ALL ON ALL TABLES IN SCHEMA schema_name TO|FROM scheduler;
+        GRANT|REVOKE ALL ON ALL TABLES IN SCHEMA schema_name TO|FROM username;
     所有SEQUENCES
-        GRANT|REVOKE ALL ON ALL SEQUENCES IN SCHEMA schema_name TO|FROM scheduler;
+        GRANT|REVOKE ALL ON ALL SEQUENCES IN SCHEMA schema_name TO|FROM username;
     特定表
-        GRANT|REVOKE ALL ON some_table TO|FROM scheduler;
+        GRANT|REVOKE ALL ON some_table TO|FROM username;
     特定表只讀,建
-        GRANT|REVOKE SELECT,INSERT ON some_table TO|FROM scheduler;
+        GRANT|REVOKE SELECT,INSERT ON some_table TO|FROM username;
