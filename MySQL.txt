@@ -1,0 +1,5 @@
+登入
+mysql --host=127.0.0.1 --port=3306 -u root -p database_name
+
+匯入
+mysql --host=127.0.0.1 --port=3306 -u root -p database_name < file.sql

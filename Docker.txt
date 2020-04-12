@@ -1,0 +1,23 @@
+列出Container
+docker ps
+
+列出Container狀態
+docker stats
+
+Build
+docker-compose build
+
+Up
+docker-compose up -d
+
+Down
+docker-compose down
+
+Down且移除volume
+docker-compose down -f  
+
+刪除所有none的image
+docker rmi $(docker images -f "dangling=true" -q)
+
+看容器狀態
+docker stats
