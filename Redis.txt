@@ -1,0 +1,14 @@
+登入
+redis-cli -h <hostname> -p <port> -a <password>
+
+列出所有KEY
+KEYS *
+
+取值
+GET key
+
+設值
+SET key value
+
+設Key過期(秒)
+EXPIRE key 10
