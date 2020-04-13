@@ -22,9 +22,9 @@ ALTER USER username PASSWORD 'new_password';
 
 授權與撤銷
     連線存取
-        GRANT|REVOKE CONNECT TO DATABASE database_name TO|FROM username;
+        GRANT|REVOKE CONNECT ON DATABASE database_name TO|FROM username;
     使用DB
-        GRANT|REVOKE USAGE ON SCHEMA database_name TO|FROM username;
+        GRANT|REVOKE USAGE ON SCHEMA schema_name TO|FROM username;
     所有表
         GRANT|REVOKE ALL ON ALL TABLES IN SCHEMA schema_name TO|FROM username;
     所有SEQUENCES
