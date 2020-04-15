@@ -33,3 +33,17 @@ ALTER USER username PASSWORD 'new_password';
         GRANT|REVOKE ALL ON some_table TO|FROM username;
     特定表只讀,建
         GRANT|REVOKE SELECT,INSERT ON some_table TO|FROM username;
+
+列出連線中的行程
+ps -ef |grep postgres
+
+顯示Table容量大小
+SELECT nspname || '.' || relname AS "relation",
+    pg_size_pretty(pg_total_relation_size(C.oid)) AS "total_size"
+  FROM pg_class C
+  LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
+  WHERE nspname NOT IN ('pg_catalog', 'information_schema')
+    AND C.relkind <> 'i'
+    AND nspname !~ '^pg_toast'
+  ORDER BY pg_total_relation_size(C.oid) DESC
+  LIMIT 5;
