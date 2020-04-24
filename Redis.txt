@@ -1,5 +1,5 @@
 登入
-redis-cli -h <hostname> -p <port> -a <password>
+redis-cli -h <hostname> -p <port> -a <password> -n <db_number>
 
 列出所有KEY
 KEYS *

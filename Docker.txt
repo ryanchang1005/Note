@@ -21,3 +21,6 @@ docker rmi $(docker images -f "dangling=true" -q)
 
 看容器狀態
 docker stats
+
+進入container
+docker exec -it xxx /bin/bash
