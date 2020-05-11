@@ -24,3 +24,6 @@ docker stats
 
 進入container
 docker exec -it xxx /bin/bash
+
+建立網路
+docker network create xxx

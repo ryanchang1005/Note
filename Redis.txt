@@ -21,3 +21,6 @@ SMEMBERS key
 
 增加元素(Set)
 SADD key value
+
+清除所有KEY
+FLUSHALL
