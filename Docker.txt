@@ -4,6 +4,12 @@ docker ps
 列出Container狀態
 docker stats
 
+列出Network
+docker network ls
+
+列出Volume
+docker volume ls
+
 Build
 docker-compose build
 
