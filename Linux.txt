@@ -1,3 +1,11 @@
 顯示容量
 du -sh ~/
 
+自訂命令別名
+vi ~/.bashrc
+ex:
+    alias dc=docker-compose
+    alias d=docker
+    dexec(){
+        docker exec -it "$1" /bin/bash
+    }
