@@ -1,0 +1,73 @@
+*ngFor : 把products迭代出來
+# 1.
+    <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+    </div>
+# 2. 以async管道(https://angular.tw/api/common/AsyncPipe)
+    <div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+    <span>{{ shipping.type }}</span>
+    <span>{{ shipping.price | currency }}</span>
+    </div>
+
+*ngIf : 如右側條件達成或內容不為空, 才顯示tag
+# 1.
+    <p *ngIf="product.description">
+        Description: {{ product.description }}
+    </p>
+# 2.
+    <div *ngIf="product">
+    <h3>{{ product.name }}</h3>
+    <h4>{{ product.price | currency }}</h4>
+    <p>{{ product.description }}</p>
+    </div>
+
+插值 {{  }}
+Description: {{ product.description }}
+
+屬性繫結 []
+<a [title]="product.name + ' details'">
+    {{ product.name }}
+</a>
+
+事件繫結 ()
+<button (click)="share()">
+    Share
+</button>
+
+超連結路由(類似href)
+# 1. 有路徑參數
+    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+        {{ product.name }}
+    </a>
+# 2. 無路徑參數
+    <a routerLink="/cart" class="button fancy-button">
+    <i class="material-icons">shopping_cart</i>Checkout
+    </a>
+
+吃URL裡的路徑變數(通常Detail頁會用到)
+import { ActivatedRoute } from '@angular/router';
+
+constructor(
+    private route: ActivatedRoute,
+) { }
+
+ngOnInit() {
+  this.route.paramMap.subscribe(params => {
+    this.product = products[+params.get('productId')];
+  });
+}
+
+建立一個Component後要做的事
+    1.新增路由app.module.ts >> @NgModule >> imports >> RouterModule
+    2.建立Service
+
+加HttpClientModule
+    1.app.module.ts >> import { HttpClientModule } from '@angular/common/http';
+    2.app.module.ts >> @NgModule >> imports >> HttpClientModule
+    3.使用, cart.services.ts >> import { HttpClient } from '@angular/common/http';
+    4.  constructor(
+            private http: HttpClient
+        ) {}
+    5.function中使用, this.http.get('/assets/shipping.json');
+
