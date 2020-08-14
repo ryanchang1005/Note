@@ -10,6 +10,9 @@ TYPE key
 設Key過期(秒)
 EXPIRE key 10
 
+過期時間(秒)
+TTL key
+
 取值(String)
 GET key
 
