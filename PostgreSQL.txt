@@ -70,3 +70,9 @@ SELECT pid,
        state,
        query
 FROM pg_stat_activity;
+
+備份
+pg_dump mydbname -U myusername -h myhost > mydbname.sql
+
+匯入
+pg_dump mydbname -U myusername -h myhost < mydbname.sql
