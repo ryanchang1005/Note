@@ -1,3 +1,39 @@
+安裝angular套件
+npm install -g @angular/cli
+
+新專案
+ng new my-app
+
+啟動
+cd my-app
+ng serve --open
+
+建立元件
+    command:
+        ng generate component heroes(App模組)
+        ng generate component hero-detail(App Detail模組)
+        ng generate component messages(訊息模組)
+        ng generate component dashboard(儀表板模組)
+    說明:
+        1.最基本, 一頁就一個component(heroes)
+        2.一頁當中某一區塊重複出現也可作為component(例如:messages)
+
+建立服務
+    command:
+        ng generate service hero
+        ng generate service message
+    說明:
+        1.component不該直接存取資料(直接在component用HttpClient取資料, 重複, 共用問題)
+        2.不用使用new來建立服務, 而是使用DI自動注入到component中
+        3.Service裡的fields因其Service有Singleton特性所以"單一全域變數, 全App共享該變數"?(待確認
+
+建立路由
+    command:
+        ng generate module app-routing --flat --module=app
+    說明:
+        1.根據URL導向到指定的Componet
+
+
 *ngFor : 把products迭代出來
 # 1.
     <div class="cart-item" *ngFor="let item of items">
