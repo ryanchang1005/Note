@@ -9,3 +9,9 @@ ex:
     dexec(){
         docker exec -it "$1" /bin/bash
     }
+
+找出佔用 8000 port的process
+lsof -i:8000
+
+清除pid為12345的process
+kill 12345
