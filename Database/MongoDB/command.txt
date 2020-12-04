@@ -1,0 +1,5 @@
+連線
+mongo "mongodb://testuser:testpassword@localhost:27017"
+
+使用指定database
+use <database>
