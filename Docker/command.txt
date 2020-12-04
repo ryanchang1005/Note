@@ -1,5 +1,6 @@
 列出Container
 docker ps
+docker ps -f "name=log"
 
 列出Container狀態
 docker stats
@@ -11,6 +12,7 @@ docker network ls
 docker volume ls
 
 Build
+docker build . -f DockerfileBase -t samplebase  # 指定檔案, 並給予tag名稱
 docker-compose build
 
 Up
@@ -33,3 +35,6 @@ docker exec -it xxx /bin/bash
 
 建立網路
 docker network create xxx
+
+移除所有container
+d rm $(d container ls -a -q)
