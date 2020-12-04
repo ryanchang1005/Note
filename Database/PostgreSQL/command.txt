@@ -8,6 +8,9 @@ psql -U username -h localhost -p 5432 dbname
 列出Table
 \dt
 
+描述Table
+\d tablename
+
 列出User
 \du
 
