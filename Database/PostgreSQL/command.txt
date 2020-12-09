@@ -5,6 +5,9 @@ psql -U username -h localhost -p 5432 dbname
 列出資料庫
 \l
 
+連到資料庫
+\c dbname
+
 列出Table
 \dt
 
