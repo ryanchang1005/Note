@@ -22,7 +22,7 @@ Down
 docker-compose down
 
 Down且移除volume
-docker-compose down -f  
+docker-compose down -v  
 
 刪除所有none的image
 docker rmi $(docker images -f "dangling=true" -q)
@@ -38,3 +38,6 @@ docker network create xxx
 
 移除所有container
 d rm $(d container ls -a -q)
+
+顯示各個container最後n筆log
+docker-compose logs --tail="2"
