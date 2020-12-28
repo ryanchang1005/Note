@@ -8,12 +8,17 @@ ng new my-app
 cd my-app
 ng serve --open
 
+加上Material套件
+ng add @angular/material
+
+
 建立元件
     command:
         ng generate component heroes(App模組)
         ng generate component hero-detail(App Detail模組)
         ng generate component messages(訊息模組)
         ng generate component dashboard(儀表板模組)
+        ng g c xxx
     說明:
         1.最基本, 一頁就一個component(heroes)
         2.一頁當中某一區塊重複出現也可作為component(例如:messages)
