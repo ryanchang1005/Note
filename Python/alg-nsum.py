@@ -1,3 +1,4 @@
+# 來源  https://leetcode.com/problems/4sum/discuss/8545/Python-140ms-beats-100-and-works-for-N-sum-(Ngreater2)
 # 兩個類別訂單與實收明細
 # 當訂單金額為100, 但實收明細為50, 50或30, 30, 40分多次的
 # NSum可以幫助我們找出湊到100的組合

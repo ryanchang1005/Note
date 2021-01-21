@@ -1,0 +1,12 @@
+# Ether
+web3==5.4.0
+
+# Tron
+tronpy==0.2.0
+
+# Bit
+bit==0.7.2
+cryptoaddress=0.2.1
+
+# Http request
+requests==2.25.1

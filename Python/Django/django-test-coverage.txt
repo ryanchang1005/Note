@@ -1,4 +1,0 @@
-https://stackoverflow.com/questions/60344645/how-to-exclude-the-django-libraries-from-coverage/60344950#60344950
-
-coverage run --omit=*/venv/*,*/migrations/* manage.py test
-coverage report -m
