@@ -1,8 +1,0 @@
-# Ether
-web3==5.4.0
-
-# Tron
-tronpy==0.2.0
-
-# Http request
-requests==2.23.0
