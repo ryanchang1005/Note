@@ -98,6 +98,44 @@ OK
 
 ```
 
+## GEO
+```
+新增
+GEOADD key longitude latitude member [longitude latitude member ...]
+GEOADD places 121.5173748 25.0477022 "taipei main station" 121.5645294 25.0338489 "taipei 101"
+
+查詢
+GEOPOS places "taipei main station" "nothing" "taipei 101"
+1) 1) "121.51737481355667114"
+   2) "25.04770260439912732"
+2) (nil)
+3) 1) "121.56452804803848267"
+   2) "25.03384781854217778"
+
+算距離
+GEODIST places "taipei main station" "nothing"
+(nil)
+GEODIST places "taipei main station" "taipei 101"
+"4995.3511"
+GEODIST places "taipei main station" "taipei 101" km
+"4.9954"
+
+以"給予的點"或"成員"為圓心, 周遭距離N公里的成員, 距離(m, km), 可以帶著"與中心距離", "成員的經緯度", "限制數量", "依照距離遞增或遞減"
+GEORADIUS places 121.5217817 25.0346137 5 km WITHDIST WITHCOORD COUNT 10 ASC
+以中正紀年堂為中心(121.5217817 25.0346137), 周遭5公里的成員, 依照距離遞增, 前10筆
+
+與上方相同只是不是用"給予的點", 而是用"成員"(含自己)
+GEORADIUSBYMEMBER places "taipei 101" 5 km WITHDIST WITHCOORD COUNT 10 ASC
+
+取出, 並用geohash值顯示
+GEOHASH places "taipei main station" "taipei 101"
+1) "wsqqmpy32n0"
+2) "wsqqqm28dz0"
+
+geohash值(https://ithelp.ithome.com.tw/articles/10203720)
+
+```
+
 ## 大量key同時失效
 ```
 有時候我們會大量設置cache並給予相同的timeout時間, 或是定時任務每天, 小時設置首頁cache
