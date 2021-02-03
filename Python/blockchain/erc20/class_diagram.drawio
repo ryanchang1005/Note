@@ -1,0 +1,97 @@
+<mxfile host="65bd71144e" modified="2021-01-27T02:19:44.254Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="13.10.0" etag="uTqSDsa77lisrSUO3rS8" type="embed">
+    <diagram id="nLZ3MsPQbzYltoEd3ee9" name="Page-1">
+        <mxGraphModel dx="982" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="«interface»&#10;Chain&#10;+ get_lib_client&#10;+ deploy&#10;+ pri_key_to_address&#10;+ generate_address&#10;+ is_address_valid&#10;+ to_valid_address" style="fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="265" y="70" width="180" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="«interface»&#10;Currency&#10;+ set_chain_client&#10;+ decimals&#10;+ to_human_format_amount&#10;+ to_currency_format_amount&#10;+ balance_of&#10;+ transfer&#10;+ get_transaction&#10;+ get_transaction_list" style="align=center;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="360" width="206" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="EtherChain" style="" vertex="1" parent="1">
+                    <mxGeometry x="175" y="280" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="TronChain" style="" vertex="1" parent="1">
+                    <mxGeometry x="295" y="280" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="BTCChain" style="" vertex="1" parent="1">
+                    <mxGeometry x="425" y="280" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="EtherCurrency&#10;+ get_transaction" style="" vertex="1" parent="1">
+                    <mxGeometry x="100" y="560" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="EtherEthCurrency" style="" vertex="1" parent="1">
+                    <mxGeometry x="50" y="670" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="EtherUSDTCurrency" style="" vertex="1" parent="1">
+                    <mxGeometry x="170" y="670" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="TronTrxCurrency" style="" vertex="1" parent="1">
+                    <mxGeometry x="300" y="670" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="TronUSDTCurrency" style="" vertex="1" parent="1">
+                    <mxGeometry x="420" y="670" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=classic;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="7" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="310" y="600" as="sourcePoint"/>
+                        <mxPoint x="360" y="550" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="9" target="7">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="165" y="570" as="sourcePoint"/>
+                        <mxPoint x="250.0000000000001" y="530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="8" target="7">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="175" y="580" as="sourcePoint"/>
+                        <mxPoint x="260.0000000000001" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="14" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="343.0000000000001" y="660" as="sourcePoint"/>
+                        <mxPoint x="268" y="600" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="15" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="381.0000000000001" y="645" as="sourcePoint"/>
+                        <mxPoint x="306" y="585" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="BTCCurrency" style="" vertex="1" parent="1">
+                    <mxGeometry x="550" y="670" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="endArrow=classic;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="24" target="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="680" as="sourcePoint"/>
+                        <mxPoint x="280.0000000000001" y="530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="" style="endArrow=classic;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="4" target="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="189" y="250" as="sourcePoint"/>
+                        <mxPoint x="239" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="224" y="290" as="sourcePoint"/>
+                        <mxPoint x="348" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="349" y="290" as="sourcePoint"/>
+                        <mxPoint x="365" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -12,7 +12,8 @@ from tronpy import Tron
 from tronpy.exceptions import AddressNotFound
 from tronpy.keys import PrivateKey
 
-from bit import Key, wif_to_key
+from bit import wif_to_key, PrivateKey, PrivateKeyTestnet
+from bit.network import NetworkAPI
 from cryptoaddress import BitcoinAddress
 
 from config import *
@@ -137,6 +138,28 @@ class TronChain(Chain):
 
 class BTCChain(Chain):
 
+    def __init__(self, network_type='mainnet'):
+        if network_type:
+            network_type = network_type.lower()
+            if network_type not in ['mainnet', 'testnet']:
+                raise NotImplementedError(
+                    f'Invalid network_type, network_type={network_type}')
+
+            self.network_type = network_type
+
+    def is_mainnet(self):
+        return self.network_type == 'mainnet'
+
+    def get_lib_client(self):
+        raise NotImplementedError
+
+    def deploy(self):
+        raise NotImplementedError
+
+    def pri_key_to_address(self, pri_key):
+        key = wif_to_key(pri_key)
+        return key.address
+
     def generate_address(self):
         key = Key()
         return {
@@ -151,6 +174,9 @@ class BTCChain(Chain):
             return False
         return True
 
+    def to_valid_address(self, address):
+        raise NotImplementedError
+
 
 class ChainFactory:
     def get_chain(self, chain_name):
@@ -158,6 +184,8 @@ class ChainFactory:
             return EtherChain()
         elif chain_name == CHAIN_TRON:
             return TronChain()
+        elif chain_name == CHAIN_BTC:
+            return BTCChain()
         else:
             raise NotImplementedError
 ###############################################################
@@ -415,10 +443,39 @@ class TronUSDTCurrency(Currency):
 
 
 class BTCCurrency(Currency):
-    
+
+    def __init__(self, network_type='mainnet'):
+        """
+        :param network_type: str: 'mainnet' | 'testnet'
+        """
+        self.network_type = network_type
+
+    def decimals(self):
+        return 8
+
+    def to_human_format_amount(
+            self, currency_amount
+    ):
+        currency_amount = Decimal(currency_amount)
+        return str(currency_amount / 10 ** self.decimals())
+
+    def to_currency_format_amount(
+            self, human_amount
+    ):
+        return str(float(human_amount) * 10 ** self.decimals())
+
     def balance_of(self, address):
-        rsp = requests.get(f'https://blockchain.info/q/addressbalance/{address}')
-        return str(Decimal(rsp.text) / (Decimal('10') ** Decimal('8')))
+
+        if self.network_type == 'mainnet':
+            key = PrivateKey()
+        elif self.network_type == 'testnet':
+            key = PrivateKeyTestnet()
+        else:
+            raise Exception(
+                f'network_type not in [mainnet, testnet], value={self.network_type}')
+
+        key._address = address
+        return self.to_human_format_amount(key.get_balance())
 
 
 class CurrencyFactory:
@@ -431,5 +488,7 @@ class CurrencyFactory:
             return TronTrxCurrency()
         elif currency_name == CURRENCY_TRON_USDT:
             return TronUSDTCurrency()
+        elif currency_name == CURRENCY_BTC_BTC:
+            return BTCCurrency()
         else:
             raise NotImplementedError
