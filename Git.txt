@@ -1,2 +1,11 @@
 好看log
 git log --all --decorate --oneline --graph
+
+顯示差異
+git diff <filename>
+
+勿加到暫存區(add), 取消
+git reset <filename>
+
+強制還原上一個版本(本次修改(unstashed)將會回溯)(危)
+git reset --hard
