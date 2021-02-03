@@ -44,6 +44,13 @@ DECR <key>  // Key的值 減1
 
 ## Hash
 ```
+HMSET user.1 name "ryan" age "25"  // 設定key="user.1", value="{"name": "ryan", "age": "25"}"
+HGETALL user.1  // 取出所有資料(key, value)
+HKEYS user.1  // 只取出key
+HVALS user.1  // 只取出value
+HLEN user.1  // key-value對的數量
+HMGET user.1 "name"  // 取出指定key的值
+HMSET user.1 "name" "ryan2"  // 設定指定key的值
 ```
 
 ## Set
@@ -65,9 +72,11 @@ BRPOP <key> <timeout> // 如list為空則阻塞等待, 如有資料取得並彈�
 
 ## SortedSet
 ```
-ZADD <key> <score1> <member1>  // 
-ZRANGE <key> 0 10 WITHSCORES  // 
+ZADD <key> <score1> <member1>  // 增加
+ZRANGE <key> 0 10 WITHSCORES  // 根據score由小到大前10筆, 並帶著score
 ZINCRBY <key> <increment> <member>
+ZCOUNT <key> <min> <max>  // 數score介於min和max的數量, ZCOUNT <key> -inf +inf 數全部
+ZREM <key> <member> // 刪除member
 
 基本上與Set相同, 但每個member都會帶著一個score, 並且根據score遞增排序
 
