@@ -18,6 +18,8 @@ from cryptoaddress import BitcoinAddress
 
 from config import *
 
+from apis.btc import *
+
 """
          EtherChain
         / 
@@ -169,7 +171,7 @@ class BTCChain(Chain):
 
     def is_address_valid(self, address):
         try:
-            BitcoinAddress(address, network_type='mainnet')
+            BitcoinAddress(address, network_type=self.network_type)
         except Exception as e:
             return False
         return True
@@ -185,7 +187,7 @@ class ChainFactory:
         elif chain_name == CHAIN_TRON:
             return TronChain()
         elif chain_name == CHAIN_BTC:
-            return BTCChain()
+            return BTCChain(network_type=BTC_NETWORK)
         else:
             raise NotImplementedError
 ###############################################################
@@ -477,6 +479,40 @@ class BTCCurrency(Currency):
         key._address = address
         return self.to_human_format_amount(key.get_balance())
 
+    def transfer(
+        self,
+        from_pri_key,
+        to_address,
+        human_format_amount,
+        params=None
+    ):
+        key = wif_to_key(from_pri_key)
+        from_address = key.address
+
+        # check from_address & from_pri_key match
+        if from_address != key.address:
+            raise Exception(
+                f'from_address != key.address, '
+                f'from_address={from_address}, '
+                f'key.address={key.address}'
+            )
+
+        outputs = [
+            (to_address, human_format_amount, 'btc'),
+        ]
+
+        tx_id = key.send(outputs)
+
+        return tx_id
+
+    def get_transaction(self, tx_id):
+        if self.network_type == 'mainnet':
+            return BTCApiService.get_transaction(tx_id)
+        elif self.network_type == 'testnet':
+            return BTCApiService.get_transaction_test(tx_id)
+        else:
+            raise Exception(f'invalid network_type, value={self.network_type}')
+
 
 class CurrencyFactory:
     def get_currency(self, currency_name):
@@ -489,6 +525,6 @@ class CurrencyFactory:
         elif currency_name == CURRENCY_TRON_USDT:
             return TronUSDTCurrency()
         elif currency_name == CURRENCY_BTC_BTC:
-            return BTCCurrency()
+            return BTCCurrency(network_type=BTC_NETWORK)
         else:
             raise NotImplementedError

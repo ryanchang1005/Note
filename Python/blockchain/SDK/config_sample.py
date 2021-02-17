@@ -15,3 +15,5 @@ ETHER_USDT_ABI_PATH = 'abi/ether_usdt_abi.json'
 
 TRON_NETWORK = 'shasta'
 TRON_USDT_ADDRESS = '...'
+
+BTC_NETWORK = 'testnet'
