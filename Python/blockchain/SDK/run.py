@@ -24,14 +24,14 @@ def test_testnet_btc():
 
     # # Transfer
     # tx_id = currency_client.transfer(
-    #     from_pri_key='cVx9AHfJLqX3j3WN9ZzhYzTLceVtPqSQUphoUpLovdmRy1YCWrgj',
-    #     to_address='moy5S7ZwiKqV8fPeFd4udSVC27mnwuPn9g',
+    #     from_pri_key='',
+    #     to_address='',
     #     human_format_amount='0.00000005',
     # )
     # print(f'tx_id={tx_id}')
 
     print(currency_client.get_transaction(
-        'df8d410a715caf10e6cb042a8a039d1d9257e4bd55aa3a92ef797df610b81ffd'))
+        ''))
 
     print('ok, test_testnet_btc')
 
@@ -49,13 +49,13 @@ def test_mainnet_btc():
     currency_client.set_chain_client(chain_client)
 
     assert chain_client.is_address_valid(
-        '1PANM2i1Vv6qxxYEktzfDWzmC9TBx9US2a') == True  # True
+        '') == True  # True
 
     assert chain_client.is_address_valid(
-        'n17ZzDCSJkNvJufGNBqi7UDtzwRbuwU8My') == False  # False
+        '') == False  # False
 
     print(currency_client.get_transaction(
-        'b71842521d0c49ed11d1492e342727b105a9a37f1f4c11b6725ae61275740f21'))
+        ''))
 
     print('ok, test_mainnet_btc')
 
