@@ -15,3 +15,10 @@ lsof -i:8000
 
 清除pid為12345的process
 kill 12345
+
+匹配文字
+grep 關鍵字 檔案
+ls | grep .txt  // 搭配pipe找出檔案名稱中含有".txt"的檔案
+grep --color=always -n 123 *.txt  // 顏色標示
+grep "^a" data.txt  // a開頭
+grep "b$" data.txt  // b結尾
