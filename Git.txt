@@ -9,3 +9,7 @@ git reset <filename>
 
 強制還原上一個版本(本次修改(unstashed)將會回溯)(危)
 git reset --hard
+
+設定縮寫
+git config --global alias.lg "log --all --decorate --oneline --graph"
+git config --global alias.st status
