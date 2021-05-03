@@ -1,0 +1,37 @@
+如何統計在線人數
+
+* 如果可以掌握離線時間
+
+# user1 log in / O(1)
+sadd online-users 1
+(integer) 1
+
+# user2 log in / O(1)
+sadd online-users 2
+(integer) 1
+
+# Count / O(1)
+scard online-users
+(integer) 2
+
+# user1 online ? / O(1)
+sismember online-users 1
+(integer) 1
+
+# user1 log out / O(1)
+srem online-users 1
+(integer) 1
+
+# online user ? / O(n)
+smembers online-users
+1) "2"
+
+* 不可掌握
+    key = "online-user-2021-05-01-12-01" 2021/05/01的12點1分的key, 搭TTL
+    1. 如果用戶在最近三分鐘有一個事件(查看, 操作)就被視為在線
+        * 用SUNION(O(N))去聯集最近三分鐘
+    2. Client端配合每1分發出一個PING事件給後端
+        * SUNION最近兩分鐘(不確定)
+
+References
+    https://stackoverflow.com/questions/21878540/tracking-online-users-using-redis

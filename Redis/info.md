@@ -55,9 +55,11 @@ HMSET user.1 "name" "ryan2"  // 設定指定key的值
 
 ## Set
 ```
-SADD <key> <member>
-SREM <key> <member>
-SMEMBERS
+SADD <key> <member> // 加 / O(1)
+SREM <key> <member> // 移除 / O(1)
+SCARD <key> // 數量 / O(1)
+SISMEMBER <key> <member> // member是否存在 / O(1)
+SMEMBERS <key> // 顯示set有哪些member / O(N)
 ```
 
 ## List
