@@ -1,0 +1,18 @@
+MFA(登入, 敏感操作)
+OTP(確認本人)
+Unix timestamp check(防中間擷取花時間竄改完後再傳)
+Signature(驗證完整性)
+混淆ID這種東西
+OTP太多阻擋, Log註記
+
+裝置沒用到的插座開關需移除
+GPS, 外力偵測
+自刪程式
+Windows Event Log上拋LogServer
+PORT盡量只留需要的
+
+SSH憑證密碼
+SSH版本
+OS版本
+防火牆
+Linux log上拋LogServer
