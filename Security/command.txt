@@ -1,0 +1,3 @@
+查看對外的連線資訊
+lsof -i -P | grep LISTEN
+
