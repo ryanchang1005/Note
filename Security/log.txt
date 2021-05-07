@@ -1,0 +1,11 @@
+Authorization log
+Location: /var/log/auth.log
+如密碼提示, sudo, 遠端SSH
+
+Kernel log
+Location: /var/log/kern.log
+Linux kernel log
+
+System log
+Location: /var/log/syslog
+更多的log, 如果在其他地方找不到有可能就在這裡的Log
