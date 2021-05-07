@@ -3,3 +3,10 @@ ssh -i xxx.pem user@127.0.0.1
 
 上傳檔案
 scp -i xxx.pem /Users/ryan/Desktop/xxx.zip user@127.0.0.1:/user
+
+SSH key產生/設定
+Client
+    ssh-keygen
+    cat ~/.ssh/id_rsa.pub
+Server
+    vi authorized_keys  // 複製client的key進去
