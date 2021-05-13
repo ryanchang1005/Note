@@ -2,11 +2,10 @@
 ssh -i xxx.pem user@127.0.0.1
 
 上傳檔案
-scp -i xxx.pem /Users/ryan/Desktop/xxx.zip user@127.0.0.1:/user
+scp -i xxx.pem ~/Desktop/xxx.zip user@127.0.0.1:~/
 
-SSH key產生/設定
-Client
-    ssh-keygen
-    cat ~/.ssh/id_rsa.pub
-Server
-    vi authorized_keys  // 複製client的key進去
+AWS-EC2-新增金鑰對
+    1. 在本機產key : ssh-keygen -m PEM (強烈建議設定密碼!!)
+    2. 產完預設私鑰為id_rsa, 公鑰為id_rsa.pub
+    3. 將公鑰id_rsa.pub內容貼到EC2的~/.ssh/authorized_keys
+    4. SSH進到EC2 : ssh -i id_rsa.pem ubuntu@ec2-123-123-123-123.ap-northeast-123.compute.amazonaws.com
