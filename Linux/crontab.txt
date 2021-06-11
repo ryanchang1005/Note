@@ -1,0 +1,12 @@
+編輯(進入vi模式)
+crontab -e
+
+# 每天中午12點發一封信
+0 12 * * * mail ryan@example.com < /home/ryan/test.txt
+分鐘(0-59) 小時(0-23) 日(1-31) 月(1-12) 週(0-6, 0 = 星期天)
+
+# 每五分鐘跑test.sh一次
+*/5 * * * * /home/ryan/test.sh
+
+# 每個禮拜五下午4:30發送一封mail
+30 16 * * 5 mail ryan@example.com < /home/ryan/test.txt
