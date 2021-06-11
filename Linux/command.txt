@@ -1,6 +1,9 @@
 顯示容量
 du -sh ~/
 
+硬碟使用率
+df -h
+
 自訂命令別名
 vi ~/.bashrc
 ex:
