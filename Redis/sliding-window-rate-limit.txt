@@ -1,0 +1,41 @@
+設計一個近N秒內只能有N次請求(此功能強調的是'近'所以那種1天/1分鐘最多N次則不在此範圍)
+ex : 近5分鐘內不可重複發送同一個user同一個action的OTP 3次以上(第4次就擋住)
+ex : 近24小時內只能新增10篇貼文
+
+關鍵字 : rate limiter sliding window redis
+
+一開始的想法
+    我會去維護一個list(時間遞增), 這個list存的是user touch到的event的時間(ts)
+    每當有event, 先get list[0]和現在ts相比較, 是否合法
+    if 合法
+        則append ts 到list, remove list[0]
+    else:
+        raise Throttle
+
+0. 剛開始, 限制近10秒最多3個請求
+    list = []
+    (21s)touch, list = [21]
+    (22s)touch, list = [21, 22]
+    (23s)touch, list = [21, 22, 23]
+
+    (24s)touch, list[0] = 21, 24 - 10 = 14, 21 > 14故throttle
+    (34s)touch, list[0] = 21, 34 - 10 = 24, 21 < 24, list = [22, 23, 34]
+
+EVAL
+    > MULTI
+    > ZREMRANGEBYSCORE $accessToken 0 ($now - $slidingWindow)
+    > ZRANGE $accessToken 0 -1
+    > ZADD $accessToken $now $now
+    > EXPIRE $accessToken $slidingWindow
+    > EXEC
+
+    > MULTI
+    > ZREMRANGEBYSCORE <pgName> 0 <windowStartTimestamp>
+    > ZCARD <pgName>
+    > ZADD <pgName> <currentTimestamp> <currentTimestamp>
+    > EXPIRE <pgName> <windowSize>
+    > EXEC
+
+References
+    https://levelup.gitconnected.com/implementing-a-sliding-log-rate-limiter-with-redis-and-golang-79db8a297b9e
+    https://engagor.github.io/blog/2017/05/02/sliding-window-rate-limiter-redis/
