@@ -1,0 +1,24 @@
+拆EC2 x 2 (Web/Schedule), ElasticCache, RDS, S3
+
+RDS(PostgreSQL)
+    License model : Postgresql License
+    Engine version : 11.10
+    Instance class : db.t3.micro (2C1M)
+    Storage type : General Purpose (SSD)
+    Storage : 100 GiB
+    SecurityGroup : 5432 : 10.0.0.0/16
+    Multi-AZ : No
+
+ElasticCache(Redis)
+    Node typeThe : cache.t2.micro
+    Engine Version Compatibility : 5.0.4
+
+IAM
+    用角色去區分, 例如 : Web / Schedule
+    以本次為例, Web只能寫資料到S3, Schedule只能讀S3
+
+EC2
+    AMI(docker, docker-compose, git, zip, python3, alias)
+
+S3
+    ...
