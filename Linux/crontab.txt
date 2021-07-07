@@ -1,6 +1,9 @@
 編輯(進入vi模式)
 crontab -e
 
+查看
+crontab -l
+
 # 每天中午12點發一封信
 0 12 * * * mail ryan@example.com < /home/ryan/test.txt
 分鐘(0-59) 小時(0-23) 日(1-31) 月(1-12) 週(0-6, 0 = 星期天)

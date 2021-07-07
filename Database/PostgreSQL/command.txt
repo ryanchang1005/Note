@@ -82,3 +82,4 @@ pg_dump mydbname -U myusername -h myhost > mydbname.sql
 
 匯入
 pg_dump mydbname -U myusername -h myhost < mydbname.sql
+psql -U username dbname < dbexport.pgsql
