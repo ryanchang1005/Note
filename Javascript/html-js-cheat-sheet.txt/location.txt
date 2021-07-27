@@ -1,0 +1,25 @@
+http://127.0.0.1:8000/post/1/?lang=en&sort=1
+
+window.location.search
+"?lang=en&sort=1"
+
+window.location.search.substr(1)
+"lang=en&sort=1"
+
+window.location.search.substr(1).split('&')
+["pub_id=123", "name=ryna"]
+
+let dict = {};
+window.location.search.substr(1).split('&').forEach(
+    function(item){
+        let items = item.split('=');
+        dict[items[0]] = items[1];
+    }
+)
+console.log(dict);  // {"lang": "en", "sort": "1"}
+
+window.location.host // "127.0.0.1:8000"
+window.location.hostname // "127.0.0.1"
+window.location.href // "http://127.0.0.1:8000/post/1/?lang=en&sort=1"
+window.location.origin // "http://127.0.0.1:8000"
+window.location.pathname // "/post/1/"
