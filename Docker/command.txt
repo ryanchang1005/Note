@@ -44,3 +44,6 @@ docker-compose logs --tail="2"
 
 # 將容器的狀態輸出到stats.txt
 docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}" --no-stream >> stats.txt
+
+# 將container內的檔案複製出來到HOST
+docker cp <containerId>:/file/path/within/container /host/path/target
