@@ -1,0 +1,19 @@
+cURL
+
+為了方便本地測試可以跑httpbin的container
+docker run -p 80:80 -d kennethreitz/httpbin
+
+多個header
+curl -X GET "http://localhost/get" -H "Accept: application/json" -H "Content-Type: application/json"
+
+POST JSON
+curl -X POST "http://localhost/post" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"name": "ryan", "age": 26, "obj": {"bool": true}, "arr": [1, 2, 3]}'
+
+PUT JSON
+curl -X PUT "http://localhost/put" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"name": "ryan", "age": 26, "obj": {"bool": true}, "arr": [1, 2, 3]}'
+
+verbose mode 查看更詳細的資訊, status code等等
+curl -X GET "http://localhost/get" -H "Accept: application/json"
+
+下載圖片
+curl -X GET "https://avatars.githubusercontent.com/u/15250400?v=4" -o img.png
