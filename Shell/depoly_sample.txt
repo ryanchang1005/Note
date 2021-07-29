@@ -1,0 +1,21 @@
+```
+#!/bin/bash
+# 需在myproject上一層執行
+
+# 切到專案test環境Container資料夾
+cd myproject/containerization/test/
+
+# git pull
+git pull
+
+# Build, 重啟Container
+docker-compose build
+docker-compose down
+docker-compose up -d
+
+# 刪除沒使用的images
+docker rmi $(docker images -f "dangling=true" -q)
+
+# 查看Container狀態
+docker ps
+```
