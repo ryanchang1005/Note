@@ -1,0 +1,39 @@
+找出指定activty_id各個status最新的record
+TABLE : activity_log
+log_time	activty_id		status		reason
+10			1				WARNING		r1
+20			2				PENDING		r2
+30			2				ERROR		r3
+40			1				OK			r4
+50			1				OK			r5
+例如activty_id = '1'
+log_time	activty_id		status		reason
+10			1				WARNING		r1
+50			1				OK			r5
+
+CREATE TABLE activity_log ( 
+  log_time INTEGER, 
+  activty_id INTEGER,
+  status VARCHAR(10), 
+  reason VARCHAR(64)
+)
+
+INSERT INTO activity_log(log_time, activty_id, status, reason)
+VALUES
+(10, 1, 'WARNING', 'r1'),
+(20, 2, 'PENDING', 'r2'),
+(30, 2, 'ERROR', 'r3'),
+(40, 1, 'OK', 'r4'),
+(50, 1, 'OK', 'r5')
+
+SELECT
+	B.log_time, B.activty_id, B.status, B.reason
+FROM (
+  SELECT
+      MAX(log_time) AS log_time, activty_id, status
+  FROM activity_log
+  WHERE activty_id = 1
+  GROUP BY activty_id, status
+) AS A
+INNER JOIN activity_log AS B
+ON A.status = B.status and A.log_time = B.log_time;
