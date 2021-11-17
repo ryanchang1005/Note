@@ -24,6 +24,10 @@ git remote set-url origin https://github.com/ryanchang1005/Note.git
 ```
 git checkout -b new-branch
 ```
+- 修改當前branch名稱
+```
+git branch -m new-name-branch
+```
 - 刪除branch
 ```
 git branch -d new-branch
