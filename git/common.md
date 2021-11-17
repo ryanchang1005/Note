@@ -28,6 +28,27 @@ git checkout -b new-branch
 ```
 git branch -d new-branch
 ```
+- 顯示所有branch資訊
+```
+git branch -a
+------------------------
+master
+issue/123
+remotes/origin/master
+remotes/origin/issue/123
+```
+- 刪除remote branch
+```
+git push origin :issue/123
+```
+- 顯示remote branch資訊
+```
+git remote show origin
+```
+- 刪除remote過時的branch
+```
+git remote prune origin
+```
 
 # Reset
 - 捨棄該檔案尚未commit的內容, 多改的就捨棄了
