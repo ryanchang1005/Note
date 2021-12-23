@@ -80,6 +80,21 @@ limit 1; --最近的
 
 ```
 
+```SQL
+select 
+        id, name, address, location,
+        round(
+                (ST_DistanceSphere(location, 'SRID=4326;POINT(121.519233 25.068416)'::geometry) / 1000)::numeric(8, 5),
+                4
+        ) as distance_km
+from places
+where ST_DistanceSphere(
+        places.location,
+        'SRID=4326;POINT(121.519233 25.068416)'::geometry
+) < 10000
+order by distance_km desc;
+```
+
 ### Reference
 * PostGIS官網 [link](https://postgis.net/install/)
 * XXX [link]()
