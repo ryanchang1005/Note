@@ -23,3 +23,7 @@
 4. `imagePullPolicy` to Never
 5. [Reference](https://stackoverflow.com/questions/42564058/how-to-use-local-docker-images-with-minikube)
 
+## 怎知道 Service 的 domain name 是什麼
+- Service 的 domain name 有一個格式(底下)
+- `<service_name>.<namespace_name>.svc.cluster.local` 
+- 例如有個 `namespace=default` , `service_name=nginx` , 那麼此 `Service` 的 domain name 為 `nginx.default.svc.cluster.local` , 其他 `Pod` 可以透過此 doamin 存取 `nginx` 相關服務
