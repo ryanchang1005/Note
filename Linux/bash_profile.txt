@@ -1,5 +1,0 @@
-alias dc=docker-compose
-alias d=docker
-dexec(){
-  docker exec -it "$1" /bin/bash
-}
