@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: elasticsearch
+        image: docker.elastic.co/kibana/kibana-oss:6.8.23
+        ports:
+          - containerPort: 5601
+        env:
+          - name: hosts
+            value: 'elasticsearch.default.svc.cluster.local'
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: kibana
+spec:
+  type: LoadBalancer
+  selector:
+    app: kibana
+  ports:
+  - port: 5601
+    targetPort: 5601
+      
