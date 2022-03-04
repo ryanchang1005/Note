@@ -25,3 +25,6 @@ ls | grep .txt  // 搭配pipe找出檔案名稱中含有".txt"的檔案
 grep --color=always -n 123 *.txt  // 顏色標示
 grep "^a" data.txt  // a開頭
 grep "b$" data.txt  // b結尾
+
+替代文字
+sed -i 's/old_text/new_text/g' file.txt
