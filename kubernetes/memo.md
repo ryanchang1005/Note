@@ -12,6 +12,7 @@
 * `kubectl exec --stdin --tty pod_name -c container_name -- /bin/bash`
 * `kubectl top pod pod_name --containers`
 * `kubectl cp pod_name:var/log/1.log -c container_name 1.log`
+* `kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'`
 
 ## 用 Minikube 跑 Service type 為 NodePort 或 Loadbalancer 無 External-IP 問題
 1. `minikube tunnel`

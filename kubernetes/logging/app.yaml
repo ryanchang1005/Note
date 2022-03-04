@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timer
+  labels:
+    app: timer
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: timer
+  template:
+    metadata:
+      labels:
+        app: timer
+    spec:
+      containers:
+      - name: timer-app
+        image: busybox
+        args:
+        - /bin/sh
+        - -c
+        - >
+          while true;
+          do
+            echo "$HOSTNAME: $(date)";
+            sleep 1;
+          done
