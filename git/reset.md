@@ -11,3 +11,8 @@ git reset --hard
 ```
 git reset <filename>
 ```
+
+- 在 cherry-pick 時, git submodule commit 衝突, 想忽略(reset)
+```
+git reset HEAD modules/submodule1
+```
