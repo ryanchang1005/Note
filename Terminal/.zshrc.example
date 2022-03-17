@@ -4,3 +4,4 @@ alias k="kubectl"
 dexec(){
   docker exec -it "$1" /bin/bash
 }
+autoload -Uz compinit && compinit
