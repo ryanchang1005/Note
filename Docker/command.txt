@@ -21,11 +21,14 @@ docker-compose up -d
 Down
 docker-compose down
 
-Down且移除volume
+Down 且移除 volume
 docker-compose down -v  
 
-刪除所有none的image
+刪除所有 none 的 image
 docker rmi $(docker images -f "dangling=true" -q)
+
+刪除所有狀態為 exited 的 container
+docker rm $(docker ps --filter status=exited -q)
 
 看容器狀態
 docker stats
