@@ -1,0 +1,14 @@
+自訂命令別名
+vi ~/.bashrc
+ex:
+    alias dc=docker-compose
+    alias d=docker
+    dexec(){
+        docker exec -it "$1" /bin/bash
+    }
+
+找出佔用 8000 port的process
+lsof -i:8000
+
+替代文字
+sed -i 's/old_text/new_text/g' file.txt
