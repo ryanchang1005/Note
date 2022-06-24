@@ -50,3 +50,6 @@ docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}
 
 # 將container內的檔案複製出來到HOST
 docker cp <containerId>:/file/path/within/container /host/path/target
+
+# Start Portainer Container
+docker run -d -p 8888:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --privileged=true portainer/portainer-ce:alpine
