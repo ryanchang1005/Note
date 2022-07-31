@@ -83,3 +83,11 @@ pg_dump mydbname -U myusername -h myhost > mydbname.sql
 匯入
 pg_dump mydbname -U myusername -h myhost < mydbname.sql
 psql -U username dbname < dbexport.pgsql
+
+顯示目前有哪些 sequence
+SELECT sequence_schema, sequence_name 
+FROM information_schema.sequences 
+ORDER BY sequence_name;
+
+調整 sequence 起始值
+ALTER SEQUENCE orders_id_seq RESTART WITH 3000;
