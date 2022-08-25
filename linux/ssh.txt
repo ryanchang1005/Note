@@ -9,3 +9,6 @@ AWS-EC2-新增金鑰對
     2. 產完預設私鑰為id_rsa, 公鑰為id_rsa.pub
     3. 將公鑰id_rsa.pub內容貼到EC2的~/.ssh/authorized_keys
     4. SSH進到EC2 : ssh -i id_rsa.pem ubuntu@ec2-123-123-123-123.ap-northeast-123.compute.amazonaws.com
+
+產生 .pub
+ssh-keygen -f ryan.pem -y > ryan.pub
