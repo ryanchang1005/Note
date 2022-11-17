@@ -1,0 +1,9 @@
+// Install
+pip3 install awscli
+which aws
+aws --version
+
+// Configure
+aws configure set aws_access_key_id your_access_key
+aws configure set aws_secret_access_key your_secret_access_key
+aws configure set region your_region
