@@ -12,3 +12,12 @@ AWS-EC2-新增金鑰對
 
 產生 .pub
 ssh-keygen -f ryan.pem -y > ryan.pub
+
+加進 pem 到 keychain
+ssh-add -K my.pem
+
+以 Agent Forwording 模式 ssh 進 my_server_public_ip
+ssh -A ec2-user@<public_subnet_server_ip>
+
+進到 public_subnet_server_ip 後, 再 ssh 進 private_subnet_server_ip
+ssh ec2-user@<public_subnet_server_ip>
