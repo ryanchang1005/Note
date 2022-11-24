@@ -1,0 +1,8 @@
+// Login ECR
+aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com
+
+// Pull ECR
+docker pull <account_id>.dkr.ecr.<region>.amazonaws.com/<image>:v1
+
+// Run container
+docker run --env-file=.env -d <account_id>.dkr.ecr.<region>.amazonaws.com/<image>:v1
