@@ -1,0 +1,7 @@
+查詢 client-output-buffer-limit 設定值
+127.0.0.1:6379> config get client-output-buffer-limit
+1) "client-output-buffer-limit"
+2) "normal 0 0 0 slave 268435456 67108864 60 pubsub 33554432 8388608 60"
+
+設定 client-output-buffer-limit
+127.0.0.1:6379> config set client-output-buffer-limit "normal 0 0 0 slave 268435456 67108864 60 pubsub 134217728 67108864 60"
