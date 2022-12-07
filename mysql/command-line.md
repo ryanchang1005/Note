@@ -5,12 +5,12 @@
 mysql -h hostname -u root -p database_name
 ```
 
-- 備份
+- 匯出
 ```
 mysqldump -h hostname -u root -p database_name > database_name_backup.sql
 ```
 
-- 復原
+- 匯入
 ```
 mysql -h hostname -u root -p database_name < database_name_backup.sql
 ```
