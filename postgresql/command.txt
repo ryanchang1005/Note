@@ -81,7 +81,6 @@ FROM pg_stat_activity;
 pg_dump mydbname -U myusername -h myhost > mydbname.sql
 
 匯入
-pg_dump mydbname -U myusername -h myhost < mydbname.sql
 psql -U username dbname < dbexport.pgsql
 
 顯示目前有哪些 sequence
