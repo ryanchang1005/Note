@@ -9,4 +9,4 @@ bit==0.7.2
 cryptoaddress==0.2.1
 
 # Http request
-requests==2.25.1
+requests==2.31.0
